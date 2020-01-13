@@ -1,0 +1,78 @@
+extends ../layout/base 
+block content 
+	section.content-header 
+		h1 
+			| Edit soal
+			small menu for editing soal data
+		ol.breadcrumb 
+			li 
+				a(href='#') 
+					i.fa.fa-dashboard
+					| Level 
+			li.active Here 
+	section.content
+		.box
+			.box-header.with-border
+				h3.box-title
+					| soal
+				.box-tools.pull-right
+					button(type='button', data-widget='collapse', data-toggle='tooltip',title='collapse').btn.btn-box-tool
+						i.fa.fa-minus
+					
+			.box-body
+				form(role='form',method='post' action='/soal/edit/#{(id_soal==undefined) ? data.id_soal : id_soal}')
+					.row
+						
+						.col-xs-6
+							.box-body
+								- if (messages.msg_error) 
+									.alert.alert-danger.alert-dismissable 
+										button.close(type='button', data-dismiss='alert', aria-hidden='true') 
+											| ×
+										h4
+											i.icon.fa.fa-ban
+											| Alert! 
+										| !{messages.msg_error}
+								- if (messages.msg_info) 
+									.alert.alert-success.alert-dismissable 
+										button.close(type='button', data-dismiss='alert', aria-hidden='true') 
+											| ×
+										h4
+											i.icon.fa.fa-ban
+											| Success! 
+										| !{messages.msg_info}
+								.form-group
+									label
+										| id_soal
+									input(type='text',value="#{data.id_soal}",name='id_soal',placeholder='Masukkan id_soal', autofocus).form-control
+								.form-group
+									label
+										| soal
+									input(type='text',value="#{data.soal}",name='soal',placeholder='Masukkan soal', autofocus).form-control
+								.form-group
+									label
+										| optiona
+									input(type='text',value="#{ (optiona == undefined) ? data.optiona : optiona }",name='optiona',placeholder='Masukkan optiona').form-control
+								.form-group
+									label
+										| optionb
+									input(type='text',value="#{ (optionb == undefined) ? data.optionb : optionb }",name='optionb',placeholder='Masukkan optionb').form-control
+								.form-group
+									label
+										| optionc
+									input(type='text',value="#{ (optionc == undefined) ? data.optionc : optionc }",name='optionc',placeholder='Masukkan optionc').form-control
+								.form-group
+									label
+										| optiond
+									input(type='text',value="#{ (optiond == undefined) ? data.optiond : optiond }",name='optiond',placeholder='Masukkan optiond').form-control
+								.form-group
+									label
+										| answer
+									input(type='text',value="#{ (answer == undefined) ? data.answer : answer }",name='answer',placeholder='Masukkan answer').form-control
+							.box-footer
+								input(type="hidden",name="_method", value="PUT")
+								button(type='submit').btn.btn-primary
+									i.fa.fa-pencil 
+									|  Edit
+								a(href='/soal').btn.btn-primary.pull-right
+									| Back
