@@ -2,19 +2,19 @@ extends ../layout/base
 block content 
 	section.content-header 
 		h1 
-			| Customers Page
-			small it all starts here
+			| Uji Pengetahuan
+			small
 		ol.breadcrumb 
 			li 
 				a(href='#') 
 					i.fa.fa-dashboard
-					| Level 
+					| soal
 			li.active Here 
 	section.content
 		.box
 			.box-header.with-border
 				h3.box-title
-					| Customer
+					| soal
 				.box-tools.pull-right
 					button(type='button', data-widget='collapse', data-toggle='tooltip',title='collapse').btn.btn-box-tool
 						i.fa.fa-minus
@@ -35,22 +35,26 @@ block content
 							i.icon.fa.fa-ban
 							| Alert!
 						| !{messages.msg_error}
-				a(href='customers/add').pull-left.btn.btn-primary
+				a(href='quiz/add').pull-left.btn.btn-primary
 					i.fa.fa-plus 
-					|  Add Customer
+					|  Add quiz
 				.data-table
 					table.table.table-bordered
 						tr
 							th
-								| No
+								| id_quiz
 							th
-								| Name
+								| quiz
 							th
-								| Address
+								| a
 							th
-								| Email
+								| b
 							th
-								| Phone
+								| c
+							th
+								| d
+							th
+								| answer
 							th
 								| Action
 							if messages.msg_error
@@ -58,18 +62,20 @@ block content
 							else
 								for row, index in data 
 									tr
-										td #{index+1}
-										td #{row.name}
-										td #{row.address}
-										td #{row.email}
-										td #{row.phone}
+										td #{row.id_quiz}
+										td #{row.quiz}
+										td #{row.a}
+										td #{row.b}
+										td #{row.c}
+										td #{row.d}
+										td #{row.answer}
 										td
 											div(style='display:inline-block')
-												a(href='/customers/edit/#{row.id}').btn.btn-sm.btn-primary
+												a(href='/quiz/edit/#{row.id_quiz}').btn.btn-sm.btn-primary
 														i.fa.fa-edit
 											| 
 											div(style='display:inline-block')
-												form(method='post', action='/customers/delete/#{row.id}')
+												form(method='post', action='/quiz/delete/#{row.id_quiz}')
 													input(type="hidden",name="_method", value="DELETE")
 													button.btn.btn-sm.btn-danger(type='submit')
 														i.fa.fa-remove

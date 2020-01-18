@@ -10,8 +10,7 @@ var index = require('./routes/index');
 var users = require('./routes/users');
 var soal = require('./routes/soal');
 var supplier = require('./routes/supplier');
-var login = require('./routes/login');
-var customers = require('./routes/customers');
+var quiz = require('./routes/quiz');
 var expressValidator = require('express-validator');
 var methodOverride = require('method-override');
 
@@ -59,8 +58,7 @@ app.use(
 );
 
 app.use('/', index);
-app.use('/customers', customers);
-app.use('/login', login);
+app.use('/quiz', quiz);
 app.use('/supplier', supplier);
 app.use('/users', users);
 app.use('/soal', soal);

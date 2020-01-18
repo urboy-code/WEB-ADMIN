@@ -2,8 +2,8 @@ extends ../layout/base
 block content 
 	section.content-header 
 		h1 
-			| Edit Customer
-			small menu for editing customer data
+			| Edit Supplier
+			small menu for editing supplier data
 		ol.breadcrumb 
 			li 
 				a(href='#') 
@@ -14,13 +14,13 @@ block content
 		.box
 			.box-header.with-border
 				h3.box-title
-					| Customer
+					| Supplier
 				.box-tools.pull-right
 					button(type='button', data-widget='collapse', data-toggle='tooltip',title='collapse').btn.btn-box-tool
 						i.fa.fa-minus
 					
 			.box-body
-				form(role='form',method='post' action='/customers/edit/#{(id==undefined) ? data.id : id}')
+				form(role='form',method='post' action='/quiz/edit/#{(id_quiz==undefined) ? data.id_quiz : id_quiz}')
 					.row
 						
 						.col-xs-6
@@ -43,24 +43,34 @@ block content
 										| !{messages.msg_info}
 								.form-group
 									label
-										| Name
-									input(type='text',value="#{data.name}",name='name',placeholder='Enter Name', autofocus).form-control
+										| Id Quiz
+									input(type='text',value="#{data.id_quiz}",name='id_quiz',placeholder='Masukkan id_quiz', autofocus).form-control
 								.form-group
 									label
-										| Address
-									input(type='text',value="#{ (address == undefined) ? data.address : address }",name='address',placeholder='Enter address').form-control
+										| Quiz
+									input(type='text',value="#{ (quiz == undefined) ? data.quiz : quiz }",name='quiz',placeholder='Masukkan quiz').form-control
 								.form-group
 									label
-										| Email
-									input(type='text',value="#{ (email == undefined) ? data.email : email }",name='email',placeholder='Enter Address').form-control
+										| A
+									input(type='text',value="#{ (a == undefined) ? data.a : a }",name='a',placeholder='Masukkan jawaban a').form-control
 								.form-group
 									label
-										| Phone
-									input(type='text',value="#{ (phone == undefined) ? data.phone : phone }",name='phone',placeholder='Enter Phone').form-control
+										| B
+									input(type='text',value="#{ (b == undefined) ? data.b : b }",name='b',placeholder='Masukkan jawaban b').form-control
+								.form-group
+										| C
+									input(type='text',value="#{ (c == undefined) ? data.c : c }",name='c',placeholder='Masukkan jawaban c').form-control
+								.form-group
+										| D
+									input(type='text',value="#{ (d == undefined) ? data.d : d }",name='d',placeholder='Masukkan jawaban d').form-control
+								.form-group
+									label
+										| Answer
+									input(type='text',value="#{ (answer == undefined) ? data.answer : answer }",name='answer',placeholder='answer').form-control
 							.box-footer
 								input(type="hidden",name="_method", value="PUT")
 								button(type='submit').btn.btn-primary
 									i.fa.fa-pencil 
 									|  Edit
-								a(href='/customers').btn.btn-primary.pull-right
+								a(href='/quiz').btn.btn-primary.pull-right
 									| Back
